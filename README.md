@@ -80,6 +80,17 @@ This was installed on both servers with the README one-liner:
 - **Test run on .220:** the panel restarted from PID 4310 to 1748544 and answered HTTP 200 about 8 s later.
 - **Before touching the servers:** the installer was tested in a throwaway ubuntu:24.04 container with stub AMP:
   install, re-install (idempotent), `curl | bash` mode, `--remove`, and the error paths.
+- **Installer v1.1.0** (same night) adds:
+  - step-by-step output with a final verdict;
+  - a panel restart during install, which waits until the panel answers;
+  - a boot-history check ("boots in the journal where the boot timeout killed AMP");
+  - a `--status` mode.
+- **Results with v1.1.0:**
+  - .220: a real remove + fresh install showed `start timeout: 3min → 30min` and
+    `panel restarted (pid 2538319 → 2615275) and answers HTTP 200`. It found 3 boots with the timeout.
+  - .206: `--status` reported "Patched and working" and flagged the 2026-07-16 boot as timed out.
+- **A bug found and fixed along the way:** `--remove` stopped early when the patch's cron line was root's only
+  cron line.
 
 **Still to verify:** the next time .220 reboots (planned: the 24.04 → 26.04 upgrade),
 `journalctl -b -u ampinstmgr` must end with `Finished`, and port 8080 must be listening. .206 must not be
