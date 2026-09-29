@@ -1,0 +1,22 @@
+# curl -m 15 -w '%{http_code} connect=%{time_connect}s' (2026-09-29 ~23:15 CEST)
+
+## devserver .220
+https://github.com                 -> 000 (connect timed out)
+https://api.github.com             -> 000 (connect timed out)
+https://codeload.github.com        -> 000 (connect timed out)
+https://registry-1.docker.io/v2/   -> 401 connect=0.121s
+https://raw.githubusercontent.com  -> reachable (185.199.109.133, connect=0.025s)
+github.com resolves to 140.82.121.3/.4; ip route get 140.82.121.3 -> via 192.168.11.1 dev enp2s0
+
+## hp2 .206
+https://github.com                 -> 200 connect=0.072s
+https://registry-1.docker.io/v2/   -> 401 connect=0.126s
+https://api.github.com             -> 200 connect=0.080s
+
+## main PC
+https://github.com                 -> 200 connect=0.031s
+https://registry-1.docker.io/v2/   -> 401 connect=0.123s
+https://api.github.com             -> 200 connect=0.056s
+
+## AMP on .220 (AMPTemplates sync, every ~3 min)
+fatal: unable to access 'https://github.com/CubeCoders/AMPTemplates.git/': Failed to connect to github.com port 443 after 135139 ms: Couldn't connect to server

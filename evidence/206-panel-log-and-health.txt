@@ -1,0 +1,22 @@
+# hp2 192.168.11.206 - ADS01 log + health (2026-09-29, ~23 h after the 00:15 nightly restart)
+
+## Health
+ADS pid 231566: threads=23 fds=212 rss=259648 kB started=Tue Sep 29 00:15:02 2026
+panel: http 200 in 0.001574s
+memory: 15Gi total, 11Gi available; 0 OOM kills in dmesg
+AMP_Logs: 58 files 2026-08-31..2026-09-29; no panel start other than the nightly
+22:15 UTC (00:15 CEST) restart and the 00:00 UTC rollover
+
+## Top messages in AMPLOG_2026-09-28 00-00-00.log (numbers normalised to N)
+2328  [System Error/N] : Failure communicating with http://N.N.N.N:N/ - check that the host is available and reachable.
+1172  [System Info/N]  : Failed to update LPserver - Could not connect to the remote instance at http://N.N.N.N:N/. Host Unreachable
+1156  [System Info/N]  : Failed to update Original - Could not connect to the remote instance at http://N.N.N.N:N/. Connection Refused
+  80  [System Info/N]  : Updating remote source CubeCoders/AMPTemplates:main
+
+## One polling cycle (every minute, done in ~3 s)
+[10:00:00] [System Activity/37] : Authentication token ... for AMP_SYSTEM requested by UpdateRemoteInstancesList on behalf of INTERNAL
+[10:00:03] [System Error/37]    : Failure communicating with http://192.168.11.201:8080/ - check that the host is available and reachable.
+[10:00:03] [System Info/37]     : Failed to update LPserver - Could not connect to the remote instance at http://192.168.11.201:8080/. Host Unreachable
+[10:00:03] [System Activity/37] : Authentication token ... for AMP_SYSTEM requested by UpdateRemoteInstancesList on behalf of INTERNAL
+[10:00:03] [System Error/37]    : Failure communicating with http://192.168.11.220:8080/ - check that the host is available and reachable.
+[10:00:03] [System Info/37]     : Failed to update Original - Could not connect to the remote instance at http://192.168.11.220:8080/. Connection Refused

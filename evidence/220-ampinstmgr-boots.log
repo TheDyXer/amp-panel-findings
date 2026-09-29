@@ -1,0 +1,49 @@
+# devserver 192.168.11.220 - journalctl -b <n> -u ampinstmgr.service (captured 2026-09-29)
+
+## boot -3 (2026-08-02 12:53 -> 2026-08-18) - last lines only
+2026-08-02T12:55:37+02:00 server systemd[1]: ampinstmgr.service: start operation timed out. Terminating.
+2026-08-02T12:55:37+02:00 server systemd[1]: ampinstmgr.service: Main process exited, code=exited, status=143/n/a
+2026-08-02T12:55:37+02:00 server systemd[1]: ampinstmgr.service: Failed to kill control group /system.slice/ampinstmgr.service, ignoring: Invalid argument
+2026-08-02T12:55:37+02:00 server systemd[1]: ampinstmgr.service: Failed with result 'timeout'.
+2026-08-02T12:55:37+02:00 server systemd[1]: Failed to start ampinstmgr.service - AMP Instance Manager.
+2026-08-02T12:55:37+02:00 server systemd[1]: ampinstmgr.service: Consumed 12.683s CPU time, 567.5M memory peak, 0B memory swap peak.
+
+## boot -2 (2026-08-18 11:29 -> 19:43) - last lines only
+2026-08-18T11:33:00+02:00 server systemd[1]: ampinstmgr.service: start operation timed out. Terminating.
+2026-08-18T11:33:00+02:00 server systemd[1]: ampinstmgr.service: Main process exited, code=exited, status=143/n/a
+2026-08-18T11:33:00+02:00 server systemd[1]: ampinstmgr.service: Failed to kill control group /system.slice/ampinstmgr.service, ignoring: Invalid argument
+2026-08-18T11:33:00+02:00 server systemd[1]: ampinstmgr.service: Failed with result 'timeout'.
+2026-08-18T11:33:00+02:00 server systemd[1]: Failed to start ampinstmgr.service - AMP Instance Manager.
+2026-08-18T11:33:00+02:00 server systemd[1]: ampinstmgr.service: Consumed 11.949s CPU time, 561.3M memory peak, 0B memory swap peak.
+
+## boot -1 (2026-08-23 21:45 -> 2026-09-29 22:32, 37 days) - full unit log
+server systemd[1]: Starting ampinstmgr.service - AMP Instance Manager...
+server ampinstmgr[1144]: [Info/1] AMP Instance Manager v2.8.0.4 built 24/07/2026 17:14
+server ampinstmgr[1144]: [Info/1] Stream: Mainline / Release - built by CUBECODERS/buildbot on CCL-DEV
+server ampinstmgr[1144]: [Info/7] Waiting for AMP instance to start...
+server ampinstmgr[1144]: [Notice/7] AMP instance ADS01 is now running.
+server ampinstmgr[1144]: [Info/9] java: Pulling from cubecoders/ampbase
+server ampinstmgr[1144]: [Info/9] 26c307b5e35a: Pulling fs layer
+server ampinstmgr[1144]: [Info/9] 7ca34b7acee5: Pulling fs layer
+server ampinstmgr[1144]: [Info/9] 8e02892ba51c: Pulling fs layer
+server ampinstmgr[1144]: [Info/9] 2cd363db46ba: Pulling fs layer
+server ampinstmgr[1144]: [Info/9] 83aafac2bb48: Pulling fs layer
+server ampinstmgr[1144]: [Info/12] 44136fa355b3: Download complete
+server ampinstmgr[1144]: [Info/12] eca88f520cc5: Download complete
+server ampinstmgr[1144]: [Info/12] 8e02892ba51c: Download complete
+server systemd[1]: ampinstmgr.service: start operation timed out. Terminating.
+server systemd[1]: ampinstmgr.service: Main process exited, code=exited, status=143/n/a
+server systemd[1]: ampinstmgr.service: Failed to kill control group /system.slice/ampinstmgr.service, ignoring: Invalid argument
+server systemd[1]: ampinstmgr.service: Failed with result 'timeout'.
+server systemd[1]: Failed to start ampinstmgr.service - AMP Instance Manager.
+server systemd[1]: ampinstmgr.service: Consumed 12.321s CPU time, 576.2M memory peak, 0B memory swap peak.
+
+## boot 0 (2026-09-29 22:32) - OK
+2026-09-29T22:32:36+02:00 server systemd[1]: Starting ampinstmgr.service - AMP Instance Manager...
+2026-09-29T22:32:39+02:00 server ampinstmgr[1158]: [Info/1] AMP Instance Manager v2.8.0.8 build 20260927.1 built 27/09/2026 01:12
+2026-09-29T22:32:44+02:00 server ampinstmgr[1158]: [Info/7] Waiting for AMP instance to start...
+2026-09-29T22:32:44+02:00 server ampinstmgr[1158]: [Notice/7] AMP instance ADS01 is now running.
+2026-09-29T22:32:44+02:00 server systemd[1]: Finished ampinstmgr.service - AMP Instance Manager.
+
+## AMP_Logs on .220 at 23:12: a single file -> the panel did not run during boot -1
+09-29_23:12 21911 AMPLOG 2026-09-29

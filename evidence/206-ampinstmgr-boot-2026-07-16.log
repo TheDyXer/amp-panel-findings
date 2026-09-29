@@ -1,0 +1,24 @@
+# hp2 192.168.11.206 - journalctl -b 0 -u ampinstmgr.service (boot 2026-07-16 23:22, still the current boot)
+hp2 systemd[1]: Starting ampinstmgr.service - AMP Instance Manager...
+hp2 ampinstmgr[1233]: [Info/1] AMP Instance Manager v2.7.2.8 built 20/05/2026 06:54
+hp2 ampinstmgr[1233]: [Info/1] Stream: Mainline / Release - built by CUBECODERS/buildbot on CCL-DEV
+hp2 ampinstmgr[1233]: [Info/7] Waiting for AMP instance to start...
+hp2 ampinstmgr[1233]: [Notice/7] AMP instance ADS01 is now running.
+hp2 ampinstmgr[1233]: [Info/13] Error response from daemon: Head "https://registry-1.docker.io/v2/cubecoders/ampbase/manifests/java": net/http: TLS handshake timeout
+hp2 ampinstmgr[1233]: [Info/13] docker: Error response from daemon: Conflict. The container name "/AMP_OneBlock01" is already in use by container "95fcbd2d10201d5762aeb44d748703a74251b24389eabc87dda8c6ecb...
+hp2 ampinstmgr[1233]: [Info/13] Run 'docker run --help' for more information
+hp2 ampinstmgr[1233]: [Info/16] python-3: Pulling from cubecoders/ampbase
+hp2 ampinstmgr[1233]: [Info/16] Digest: sha256:934e67e554ba95d2421a7c294f497cb718e77d759f982f5f0e321e99717d2079
+hp2 ampinstmgr[1233]: [Info/16] Status: Image is up to date for cubecoders/ampbase:python-3
+hp2 ampinstmgr[1233]: [Info/15] docker.io/cubecoders/ampbase:python-3
+hp2 ampinstmgr[1233]: [Info/16] 088c0d6f4a1fd4ffca84fdad1979e652c805f152b28e0c477150605fec528f0b
+hp2 systemd[1]: ampinstmgr.service: start operation timed out. Terminating.
+hp2 systemd[1]: ampinstmgr.service: Main process exited, code=exited, status=143/n/a
+hp2 systemd[1]: ampinstmgr.service: Failed with result 'timeout'.
+hp2 systemd[1]: Failed to start ampinstmgr.service - AMP Instance Manager.
+hp2 systemd[1]: ampinstmgr.service: Consumed 12.088s CPU time.
+
+# systemctl status ampinstmgr on 2026-09-29:
+#   Active: failed (Result: timeout) since Thu 2026-07-16 23:26:25 CEST; 2 months 14 days ago
+# The panel running on 2026-09-29 had been started by the nightly cron job
+# (its cgroup was 0::/system.slice/cron.service, not ampinstmgr.service).
